@@ -38,11 +38,11 @@ namespace Excogitated.InputTimer
         {
             using (_events)
                 try
-                {                    
+                {
                     while (!Dispatcher.HasShutdownStarted && !Dispatcher.HasShutdownFinished)
                     {
                         Dispatcher.Invoke(() => _timer.Content = $"{_watch.ElapsedMilliseconds}ms");
-                        Thread.Sleep(1);
+                        Thread.Sleep(5);
                     }
                 }
                 catch (Exception) { }
@@ -53,11 +53,13 @@ namespace Excogitated.InputTimer
             if (!Dispatcher.HasShutdownStarted && !Dispatcher.HasShutdownFinished)
                 Dispatcher.Invoke(() =>
                 {
-                    _text.Items.Add($"{eventDescription} - {_watch.ElapsedMilliseconds}ms");
+                    var elapsed = _watch.ElapsedMilliseconds;
+                    _watch.Restart();
+                    _title.Content = WindowInfo.GetActiveWindowName();
+                    _text.Items.Add($"{eventDescription} - {elapsed}ms");
                     if (_view is null)
                         _view = (ScrollViewer)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(_text, 0), 0);
                     _view.ScrollToBottom();
-                    _watch.Restart();
                 });
         }
 

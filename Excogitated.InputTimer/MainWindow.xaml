@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Excogitated.InputTimer"
         mc:Ignorable="d"
-        Title="Input Timer" Height="500" Width="600">
+        Title="Input Timer" Height="650" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Timer" Grid.Row="0" FontSize="50">
+        <GroupBox Header="Window Title" Grid.Row="0" FontSize="50">
+            <Label x:Name="_title" FontSize="50"/>
+        </GroupBox>
+        <GroupBox Header="Timer" Grid.Row="1" FontSize="50">
             <Label x:Name="_timer" FontSize="50"/>
         </GroupBox>
-        <GroupBox Header="Events" Grid.Row="1" FontSize="50">
+        <GroupBox Header="Events" Grid.Row="2" FontSize="50">
             <ListView x:Name="_text" FontSize="50"/>
         </GroupBox>
     </Grid>
