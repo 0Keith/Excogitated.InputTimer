@@ -1,0 +1,21 @@
+﻿<Window x:Class="Excogitated.InputTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Excogitated.InputTimer"
+        mc:Ignorable="d"
+        Title="Input Timer" Height="500" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Timer" Grid.Row="0" FontSize="50">
+            <Label x:Name="_timer" FontSize="50"/>
+        </GroupBox>
+        <GroupBox Header="Events" Grid.Row="1" FontSize="50">
+            <ListView x:Name="_text" FontSize="50"/>
+        </GroupBox>
+    </Grid>
+</Window>
