@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Excogitated.Common" Version="0.0.20200113.1" />
+    <PackageReference Include="Excogitated.Common" Version="0.0.20200921.2" />
     <PackageReference Include="MouseKeyHook" Version="5.6.0" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using Excogitated.Common;
+﻿using Excogitated.Common.Atomic.Collections;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
