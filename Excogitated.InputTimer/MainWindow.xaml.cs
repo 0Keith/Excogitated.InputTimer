@@ -1,11 +1,11 @@
-﻿using Gma.System.MouseKeyHook;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
+using Gma.System.MouseKeyHook;
 
 namespace Excogitated.InputTimer
 {
@@ -24,12 +24,12 @@ namespace Excogitated.InputTimer
             InitializeComponent();
             Topmost = true;
             _watch = Stopwatch.StartNew();
-            _thread = new Thread(TimerThread);
             _events = Hook.GlobalEvents();
             _events.KeyDown += _events_KeyDown;
             _events.KeyUp += _events_KeyUp;
             _events.MouseDown += _events_MouseDown;
             _events.MouseUp += _events_MouseUp;
+            _thread = new Thread(TimerThread);
             _thread.Start();
         }
 
@@ -56,6 +56,8 @@ namespace Excogitated.InputTimer
                     var elapsed = _watch.ElapsedMilliseconds;
                     _watch.Restart();
                     _title.Content = WindowInfo.GetActiveWindowName();
+                    if (_text.Items.Count > 10)
+                        _text.Items.Clear();
                     _text.Items.Add($"{eventDescription} - {elapsed}ms");
                     if (_view is null)
                         _view = (ScrollViewer)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(_text, 0), 0);
